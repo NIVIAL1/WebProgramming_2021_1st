@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10주차</title>
+    <!--1번째 주제 script-->
+    <script>
+        function change() {
+            var spanArray = document.getElementsByTagName("span");
+            for(var i=0; i<spanArray.length; i++) {
+                var span = spanArray[i];
+                span.style.color = "orchid";
+                span.style.fontSize = "20px";
+            }
+        }        
+        function c_cnt(){
+            var p_class = document.getElementsByClassName("plain");
+            cn = p_class.length;
+            document.write("plain의 클래스명을 가진 div는 "+cn+" 개");
+        }
+    </script>
+    <!--2번째 주제 script-->
+    <script>
+        var win = null;
+        function s_HTML()
+        {
+            var win1 = window.open("", "outwin","")
+            texArea = document.getElementById("srcText");
+            win1.document.open()
+            win1.document.write(texArea.value)           
+            win1.document.close();
+        }
+    </script>
+    <!--3번째 주제 script-->
+    <script>
+        function createTag(){
+            var parent = document.getElementById("parent");
+            var div = document.createElement("div");
+            div.innerHTML = "새로 생성된 DIV 입니다.";
+            div.setAttribute("id", "myDiv");
+            div.style.backgroundColor = "yellow";
+            div.onclick = function(){
+                var p = this.parentElement;
+                p.removeChild(this);
+            };
+            parent.appendChild(div);
+        }
+    </script>
+    <!--4번째 주제 script-->
+    <script>
+        function inits(){
+            var p = document.getElementById("p_change");
+            p.onmouseover = over;
+            p.onmouseout = out;
+        }
+        function over(){
+             this.style.color = "red";
+        }
+        function out(){
+             this.style.backgroundColor = "yellow";
+        }
+     </script>
+     <!--5번째 주제 script-->
+     <script>
+        function abc(e){
+             var text = "e.type = " + e.type + "\n";
+             text += "Target = " + e.target + "\n";
+             text += "CurrentTarget = " + e.currentTarget + "\n";
+             text += "defaultPrevented = " + e.defaultPrevented;
+             alert(text);
+        }
+        function query(){
+            var rst = confirm("이동하시겠나요?");
+            return rst;
+        }
+        function n_query(){
+            var rst = confirm("이동이 불가능한데 시도하시겠나요?");
+            return false;
+        }
+     </script>
+     <!--6번째 주제 script-->
+     <script>
+        function cals(){
+            var exp = document.getElementById("exp");
+            var rst = document.getElementById("rst");
+            rst.value = eval(exp.value);
+        }
+    </script>
+    </head>
+    <body onload="inits()">
+        <h1>10주차</h1><br><hr>
+        <!--1번째 주제-->
+        <h3>1. 함수 활용 기본 </h3>
+        <h3>내가 좋아하는 과일
+            <button onclick="change()">과일 강조</button>
+        </h3>
+        <br>
+        저는 빨간 <span>사과</span>를 좋아해서
+        아침마다 한 개씩 먹고 있어요. 운동할 때는 중간 중간에
+        <span>바나나</span>를 먹지요. 탄수화물 섭취가 빨라
+        힘이 납니다. 또한 달콤한 향기를 품은 <span>체리</span>와
+        여름 냄새 물씬 나는 <span>자두</span>를 좋아합니다.
+        <hr>
+        <div class="plain">div class=plain 1번째</div>
+        <div class="plain">div class=plain 2번째</div>
+        <div class="plain">div class=plain 3번째</div>
+        <button onclick="c_cnt()">div 개수</button>
+
+        <!--2번째 주제-->
+        <br><hr><hr><h3>2. 문서 Open, Close</h3>
+        <p>아래 HTML 문서를 작성하고 버튼 클릭시, 새로운 윈도우로 해당 내용을 출력</p>
+        <textarea rows="10" cols="50" id = "srcText"></textarea><br>
+        <button onclick="s_HTML()"> 문서 출력 </button>
+
+        <!--3번째 주제-->
+        <br><hr><hr><h3>3. 객체를 동적으로 생성, 삭제</h3>
+        <p>DOM 객체 트리에 동적으로 객체를 삽입할 수 있습니다.<br>
+            createElement(), appendChild(), removeChild() 메소드 활용 <br>
+            새로운 객체를 생성, 삽입, 삭제하려 합니다!(DIV 클릭시 삭제)
+        </p>
+        <a href="javascript:createTag()">DIV 생성</a>
+        <div  id="parent" style="width: 50%; height: 100%;"></div>
+
+        <!--4번째 주제-->
+        <hr><hr><h3>4. 이벤트 리스너 만들기</h3>
+        <p id = "p_change">마우스 올리면 red 색으로 변경 나가면 배경 yellow 색으로 변경</p>
+        
+        <!--5번째 주제-->
+        <hr><hr><h3>5. 이벤트 객체 - 1</h3>
+        <input type="button" onclick="abc(event)" value="이벤트 세부 정보 조회"><br>
+        <a href="http://www.naver.com" onclick="return query()">네이버 이동 질의</a> <br>
+        <a href="http://www.naver.com" onclick="return n_query()">네이버 이동 질의_거절(return false)</a> <br>
+        <a href="http://www.daum.net" onclick="event.preventDefault()">이벤트 무시 이동 안됨(event.preventDefault)</a> <br>
+        <a href="http://www.gachon.ac.kr" onclick="return true">조건없이 가천대학교 이동(return true)</a>
+
+        <!--5번째 주제-->
+        <hr><hr><h3>5. 이벤트 객체 - 2</h3>
+        <p style="color:blue">이것은 <span style="color: red"> 문장입니다</span></p>
+        <form>
+            <input type="text">
+            <input type="button" value="클릭해주세요" id="button">
+        </form>
+        <div id="div" style="color: green"></div>
+        <script>
+            var div = document.getElementById("div");
+            var button = document.getElementById("button");
+            document.body.addEventListener("click", capture, true);
+            button.addEventListener("click", bubble, false);
+            document.body.addEventListener("click", bubble, true);
+            function capture(e){
+                var obj = e.currentTarget;
+                var tagName = obj.tagName;
+                div.innerHTML += "<br> Capture 단계 : " + tagName + "태그 : " + obj + "이벤트 : " + e.type;
+            }
+            function bubble(e){
+                var obj = e.currentTarget;
+                var tagName = obj.tagName;
+                div.innerHTML += "<br> Bubble 단계 : " + tagName + "태그 : " + obj + "이벤트 : " + e.type;
+            }
+        </script>
+        <!--6번째 주제-->
+        <hr><hr><h3>6. 간단 계산처리</h3>
+        계산하고자 하는 수식을 입력하고 계산 버튼을 클릭하세요<br>
+        <form>
+            <input type="text" id="exp"><br>
+            <input type="text" id="rst">
+            <input type="button" onclick="cals()" value="계산">
+        </form>
+    </body>
+</html>

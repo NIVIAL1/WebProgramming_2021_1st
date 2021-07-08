@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4주차</title>
+</head>
+<body>
+    <h1>4주차</h1><br><hr>
+    <!--1번째 주제 style-->
+    <h3>1. 스타일 있는 페이지를 태그로 작성</h3>
+    <style>
+        @import url(m_style.css);
+    </style>
+
+    <!-- 자식 및 본인의 객체 style -->
+    <style>
+        p {color: blue; font-size: 15px;}
+        h3, li {color: blue; font-style: italic;}
+        body.mains {background-color: aliceblue;}
+        div.mains {font-style: italic;}
+        div.oks {color: yellow;}
+        .warning {color: springgreen;}
+        #list {background-color: rgb(179, 245, 217); font-size: 20px;}
+        div > strong {background: dodgerblue;}  /*자식 셀렉터*/
+        ul strong {color: dodgerblue;}          /*자손 셀렉터*/
+        input[type=text] {color: red;}
+        li:hover {background: yellowgreen;}
+        h3::first-letter{color:tomato;}
+    </style>
+
+    <!-- 3번째 주제 style-->
+    <style>
+        body{background-color: gold;}
+        span{background-color: greenyellow;}
+        div.box{ width: 200px; height: 180px; margin: 50px;
+        border-width: 30px; padding: 20px; border-style: dotted;
+        text-align: center; border-color: hotpink;}
+        #round {border-radius: 50px; background-color: hotpink;}
+    </style>
+
+    <h3>CSS3 만들기</h3>
+    <p>웹 <span>프로그래밍</span> 작업</p>
+
+    <!--2번째 주제-->
+    <br><hr><hr><h3>2. Web Programming</h3>
+    <div>
+        <div>
+            <p style="font-size: 20px;"> 2학기<strong>학습내용</strong></p>
+        </div>
+        <ul id="list">
+            <li>HTML5</li>
+            <li><strong>CSS</strong></li>
+            <li>JAVASCRIPT</li>
+        </ul>
+        <div>
+            60점 이하는 F!
+        </div>
+    </div>
+    <hr>
+    아 이 디 : <input type="text" id="id"><br>
+    비밀번호 : <input type="password" id="pass"><br>
+    <input type="submit">
+
+    <!--3번째 주제-->
+    <br><hr><hr><h3>3. Div Box Create</h3>
+    <hr>
+    <div class="box">
+        <p style="border:15px groove yellow;">
+            
+            <img src="media/mio.png" alt="고양이눈">
+        </p>
+    </div>
+    <hr>
+    <div class="box">
+        <p id="round">
+            <img src="media/mio.png" alt="고양이눈">
+        </p>
+    </div>
+
+</body>
+</html>

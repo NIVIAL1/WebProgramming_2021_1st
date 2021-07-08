@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>9주차</title>
+        <!--1번째 주제 script-->
+        <script>
+            function deposit(mny){      // 더하는 함수
+                var balance = this.balance;
+                balance += mny;
+                this.balance = balance;
+                return balance;
+            }
+            function withdraw(mny){     // 빼주는 함수
+                var balance = this.balance;
+                if(balance>mny){
+                    balance -= mny;
+                    document.write("<br>" + mny + " 출금<br> 잔고 : "+balance+"<br>")
+                }
+                else{
+                    document.write("<br>"+mny+"출금<br>잔액 부족<br>")
+                    return balance;
+                }
+                this.balance = balance;
+                return balance;
+            }
+            function inquiry(){      // 조회하는 함수
+                document.write("<br>잔고조회 : "+this.balance+"<br>");
+            }
+            var account = new Object();
+            account.owner = "yms"
+            account.code = "111";
+            account.balance =  100000;
+            account.deposit = deposit;
+            account.withdraw = withdraw;
+            account.inquiry = inquiry;
+        </script>
+        <!--2번째 주제 script-->
+        <script>
+            function oks(){
+                var abc = document.getElementById("ok");
+                abc.style.color="red";
+            }
+            function noti(){
+                var p = document.getElementById("ti");
+                var text="";
+                text += "태그이름 : " + p.tagName + "\n";
+                text += "태그 내용 : " + p.innerHTML + "\n";
+                text += "텍스트 색 : " + p.style.color + "\n";
+                text += "자식 개수 : " + p.childElementCount + "\n";
+                text += "이벤트 리스너 : " + p.onclick + "\n";
+                text += "태그 아이디 : " + p.id + "\n";
+                text += "너비 : " + p.offsetWidth + "\n";
+                text += "높이 : " + p.offsetHeight + "\n";
+                alert(text);
+            }
+            function nits(){
+                var forms = document.getElementById("its");
+                alert(forms.childElementCount);
+            }
+            function chg(){
+                var span = document.getElementById("myspan");
+                span.style.color="green";
+                span.style.fontSize ="20px";
+                span.style.display = "block";
+                span.style.width = "30";
+                span.style.border = "3px dotted magenta";
+            }
+            function dog_chg(){
+                var p = document.getElementById("puppy");
+                p.innerHTML = "나의 <img src='./media/puppy.jpg'> 강아지";
+            }
+        </script>
+        <!--3번째 주제 script-->
+        <script>
+            function chg(obj, size, color){
+                obj.style.fontSize = size;
+                obj.style.color = color;
+            }
+        </script>
+        
+    </head>
+    <body>
+        <h1>9주차</h1><br><hr>
+        <!--1번째 주제-->
+        <h3>1. 사용자 객체 생성 </h3>
+        <script>
+            document.write("Account : " + account.owner + "<br>");
+            document.write("Account code : " + account.code + "<br>");
+            document.write("Account balance : " + account.balance+"<br><br>");
+            document.write("50000 입금 <br> 잔고 : "+account.deposit(50000)+"<br>");
+            account.inquiry();
+            account.withdraw(80000);
+            account.inquiry();
+            account.withdraw(80000);
+            account.inquiry();
+        </script>
+
+        <!--2번째 주제-->
+        <br><hr><hr><h3>2. HTML DOM 트리</h3>
+        <p style = "color:blue" id="ti" onclick="noti()"> 이것은 <span style="color:red" id="myspan"> 문장입니다.</span> </p>
+        <button onclick="chg()" value="변경">변경</button>
+        <form>
+            <input type="text" id="ok" onclick="nits()">
+            <input type="button" value="색 변경" id="its" onclick="oks()">    
+        </form>
+        <p id="puppy" style="color: blue">여기를
+            <span style="color:red" onclick="dog_chg()">클릭하세요</span>
+        </p>
+
+        <!--3번째 주제-->
+        <br><hr><hr><h3>3. This 활용</h3>
+        <div onclick="this.style.backgroundColor='orange'"> 글자색 변경</div>
+        <hr>
+        <button onclick="chg(this, '40px', 'red')"> 버튼 1</button>
+        <button onclick="chg(this, '30px', 'blue')"> 버튼 2</button>
+        <div onclick="chg(this,'50px', 'orange')"> 클릭하면 글자 색과 크기가 변경</div>
+    </body>
+</html>

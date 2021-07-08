@@ -1,0 +1,50 @@
+:root {
+  --sidebar: #f3f3f3;
+  --sidebarhead: #2c2c2c;
+  --sidebarhover: #dddddd;
+}
+
+button#sidebarToggle {
+  background-color: transparent;
+  border: none;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.border-bottom {
+  background-color: #dddddd;
+  border: none !important;
+}
+
+div#sidebar-wrapper {
+  background-color: var(--sidebar) !important;
+}
+
+.list-group.list-group-flush > a {
+  background-color: var(--sidebar) !important;
+  border: none !important;
+  cursor: pointer;
+}
+
+.list-group.list-group-flush > a:hover {
+  background-color: var(--sidebarhover) !important;
+  border: none !important;
+}
+
+.sidebar-heading.border-bottom.bg-light {
+  background-color: var(--sidebarhead) !important;
+  color: white;
+  font-weight: bold;
+}
+
+iframe {
+  height: calc(100vh - 80px);
+  position: relative;
+  width: 49.5%;
+}
+
+.border-end {
+  border: none !important;
+}
+
+iframe body {
+  background-color: pink;
+}

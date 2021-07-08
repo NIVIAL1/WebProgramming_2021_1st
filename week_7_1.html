@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력 및 기본</title>
+    <!--2번째 주제 script-->
+    <script>
+        function add(a,b)
+        {
+            return a + b;
+        }
+        function gugudan(cnt)
+        {
+            document.write(cnt+"단<br>");
+            for(var i=1;i<=9;i++)
+            {
+                document.write(cnt+" * "+i+" = "+i*cnt+"<br>");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>7주차</h1><br><hr>
+    <!--1번째 주제-->
+    <h3>1. 입력 및 기본</h3>
+    <script>
+        var in_a = prompt("Input","원하는 단 수 입력()");
+        var sum=0;
+        for(var i=0;i<=in_a;i++)
+        {
+            if(i%3==0)
+            {
+                document.write(i+"<br>");
+                sum+=i;
+            }
+        }
+        document.write(in_a+"까지 3의 배수 총 합 : "+sum+"<br>");
+    </script>
+
+    <!--2번째 주제-->
+    <br><hr><hr><h3>2. 함수 호출 결과 처리</h3>
+    <script>
+        var a = prompt("원하는 단 수 입력(정수)");
+        if(isNaN(a))
+        {
+            document.write(a+"는 숫자가 아닙니다.<br>");
+        }
+        else
+        {
+            document.write(a+"는 숫자입니다.<br>");
+        }
+        gugudan(a);
+    </script>
+    <!--3번째 주제-->
+    <br><hr><hr><h3>3. 객체</h3>
+    <script>
+        document.write("<h3>Date활용</h3><br><br>");
+        var today = new Date();
+
+        document.write(today.toString()+"<br>");
+        document.write(today.toDateString()+"<br>");
+        document.write(today.getDate() +"<br>");
+        document.write(today.toLocaleDateString() +"<br>");
+
+
+        document.write("<hr><h3>4. String 활용</h3><br><br>");
+        var mystr = new String();
+        mystr = "Hello";
+        document.write(mystr+"<br>");
+
+        document.write(mystr.length+" 글자 <br>");
+
+        document.write("<hr><h3>5. 배열 활용</h3><br><br>");
+        
+        var arr=[4,5,2,8,3,7];
+        var sum = 0;
+        for(var i = 0;i<arr.length;i++)
+        {   
+            document.write(arr[i]+" ");
+            sum += arr[i];
+        }
+        document.write("<br>총 합은 "+sum+"<br><br><br>");
+
+        for(var i=0; i<arr.length;i++)
+        {
+            var j = arr[i];
+            var k = 0;
+            while(k < j)
+            {
+                document.write("*");
+                k++;
+            }
+            document.write(" " + arr[i]+"<br>");
+        }
+        var nums = new Array();
+        nums[0] = 15.1;
+        nums[1] = 13.5;
+        nums[2] = 12.3;
+        nums[3] = 9.8;
+        nums[4] = 17.3;
+
+        for(i=0;i<nums.length;i++){
+            document.write(nums[i]+"<br>");
+        }
+        
+        document.write("<hr><h3>6. Date객체</h3>")
+        var now = new Date();
+        date = now.getDate();
+        hour = now.getHours();
+        minute = now.getMinutes();
+        second = now.getSeconds();
+        document.write(now+"<br>");
+        document.write(date+"일  "+hour+"시 "+minute +"분 "+ second+"초");
+        if(second%2==0)
+        {
+            document.body.style.backgroundColor="violet";
+        }
+        else
+        {
+            document.body.style.backgroundColor="lightskyblue";
+        }
+    </script>
+
+</body>
+</html>

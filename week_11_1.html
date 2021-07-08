@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>11주차</title>
+        <style>
+            div {
+                background-color: skyblue;
+                width: 250px;
+            }
+        </style>
+        <!--1번째 주제 script-->
+        <script>
+            var width = 20; // 테두리 두께
+            function down(obj) {
+                obj.style.fontStyle = "italic";
+            }
+            function up(obj) {
+                obj.style.fontStyle = "normal";
+            }
+            function over(obj) {
+                obj.style.borderColor = "violet";
+                // 테두리 폭이 0일 때 색은 보이지 않는다.
+            }
+            function out(obj) {
+                obj.style.borderColor = "lightgray";
+            }
+            function wheel(e, obj) { // e는 이벤트 객체
+                if(e.wheelDelta < 0) { // 휠을 아래로 굴릴 때
+                    width--; // 폭 1 감소
+                    if(width < 10) width = 10; // 폭이 1보다 작아지지 않게
+                }
+                else // 휠을 위로 굴릴 때
+                    width++; // 폭 1 증가
+                obj.style.borderStyle = "ridge";
+                obj.style.borderWidth = width+"px";
+            }
+            </script>
+            <!--3번째 주제 script-->
+            <script>
+                function chgImg(){        
+                    var img = document.getElementById("m_Img");
+                    img.src = "./media/banana.png"
+                }
+        
+                function changeImg(){
+                    var sel = document.getElementById("sel");
+                    var img = document.getElementById("img");
+                    img.onload = function(){
+                        var mySpan = document.getElementById("mySpan");
+                        mySpan.innerHTML = img.width + "x" + img.height;
+                    }
+                    var index = sel.selectedIndex;
+                    img.src = sel.options[index].value;
+                }
+                files = ["./media/Penguins.png", "./media/Lighthouse.png", "./media/Chrysanthemum.png", "./media/Desert.png", 
+                "./media/Hydrangeas.png", "./media/Jellyfish.png", "./media/Koala.png", "./media/Tulips.png"];
+                var imgs = new Array();
+                for(i=0; i<files.length;i++){
+                    imgs[i] = new Image();
+                    imgs[i].src = files[i]
+                }
+                var i=0;
+        
+                function change(img){
+                    img.src = imgs[i].src;
+                    i++;
+                    i%=imgs.length;
+                }
+        
+        
+                function chkF(obj){
+                    if(obj.value ==""){
+                        alert("Enter Name");
+                        
+                    }
+                }
+                function base(){
+                    document.getElementById('name').focus();
+                }
+            </script>
+            <!--4번째 주제 script-->
+            <script>
+                function find_chk(){
+                    var city = document.getElementsByName("city");
+                    var p = document.getElementById("kcity");
+                    for(i=0;i<city.length;i++){
+                        if( city[i].checked==true){
+                            found = city[i];
+                        }
+                    }
+                    if(found != null){
+                        p.innerHTML = found.value;
+                    }
+                }
+                var sum = 0;
+                function cals(obj){
+                    if(obj.checked)
+                        sum += parseInt(obj.value);
+                    else
+                        sum -= parseInt(obj.value);
+                    document.getElementById("subtxt").value = sum;
+                    
+                }
+        
+                function whatKey(e){
+                    var str = "";
+                    dic = document.getElementById("dic");
+                    str += "e.key = " + e.key + "<br>";
+                    str += "e.code" + e.code + "<br>";
+                    dic.innerHTML = str;
+                }
+            </script>
+            <!--5번째 주제 script-->
+            <script>
+                function n_win(){
+                    window.open("login.html", "_self", "");
+                }
+        
+                var new_winds = null;
+                function new_win(url){
+                    new_wins = window.open(url, "new_wid", "");
+                }
+                function win_close(){
+                    new_wins.close();
+                    new_wins = null;
+                }
+            </script>
+    </head>
+    <body onload="changeImg(), base()">
+        <h1>11주차</h1><br><hr>
+        <!--1번째 주제-->
+        <h3>1. 마우스 핸들링 - 1 </h3>
+        <h3> 마우스 이벤트 리스너 </h3>
+        <div>마우스 관련 
+            <br><div style="border-width: 20px; border-color: black;" onmousedown="down(this)" onmouseup="up(this)" onmouseover="over(this)" onmouseout="out(this)" onmousewheel="wheel(event, this)">이벤트</div> 발생합니다.
+        </div>
+        
+        <!--2번째 주제-->
+        <br><hr><hr><h3>2. 마우스 핸들링 - 2 : 실제 마우스 프로퍼티 보기</h3>
+        이미지 위에 마우스를 움직일때 onmousemove 리스너가 실행되고, 마우스의 위치를 보여줍니다.<br>(우클릭은 hidden으로 금지)<br>
+        <img src="./media/beach.jpg" onmousemove="where(event)"><br>
+        <div id="div"></div>
+        <script>
+            var div = document.getElementById("div");
+            function where(e){
+                var txt = "버튼 = " + e.button + "<br>";
+                txt += "(screenX, screenY) = (" + e.screenX + "," + e.screenY + ")<br>";
+                txt += "(clientX, clientY) = (" + e.clientX + "," + e.clientY + ")<br>";
+                txt += "(offsetX, offsetY) = (" + e.offsetX + "," + e.offsetY + ")<br>";
+                txt += "(X, Y) = (" + e.x + "," + e.y + ")<br>";
+                div.innerHTML = txt;
+            }
+            function hideMenu(){
+                alert("오른쪽 마우스 금지")
+                return false;
+            }
+            document.oncontextmenu=hideMenu;
+        </script>
+
+        <!--3번째 주제-->
+        <br><hr><hr>
+        <h3>3. 이미지 활용</h3><br>
+        <h5>버튼 클릭 시 이미지 변경</h5>
+        <img src="./media/apple.png" id="m_Img"><br>
+        <input type = "button" value="이미지 변경" onclick="chgImg()">
+        <form>
+            <select id="sel" onchange="changeImg()">
+                <option value="./media/mango.png">망고
+                <option value="./media/Koala.png">코알라
+                <option value="./media/Jellyfish.png">해파리
+            </select>
+            <span id="mySpan">이미지 크기</span>
+        </form>
+        <p> <img src="./media/mango.png" id="img"></p>
+        <br>
+        <h3>New Image() 로 이미지 로딩하기</h3>
+        이미지를 클릭하면 다음이미지를 보여줍니다.<br>
+        <img src="./media/apple.png" width="200px" height="200px" onclick = "change(this)" style="border: 20px ridge wheat;">
+
+        <!--4번째 주제-->
+        <br><hr><hr>
+        <h3>4. 이벤트 활용</h3><br>
+        <h3>버튼을 클릭 시 라디오버튼의 값을출력</h3>
+        <form>
+            <input type="radio" name = "city" value="seoul"> 서울
+            <input type="radio" name = "city" value="busan"> 부산
+            <input type="radio" name = "city" value="chunchen"> 춘천
+            <input type="button" value="도시찾기" onclick="find_chk()">
+        </form>
+        <p id="kcity"></p>
+        <br>
+        <h3>체크박스 클릭시 값을 계산하여 출력</h3>
+        <form>
+            <input type="checkbox" value="10000" onclick="cals(this)"> 모자 1만원
+            <input type="checkbox" value="30000" onclick="cals(this)"> 구두 3만원
+            <input type="checkbox" value="80000" onclick="cals(this)"> 가방 8만원
+            <br>
+            <input type="text" id="subtxt" value="0">
+        </form>
+        
+        <br>
+        <h3> 키 리스너와 키 이벤트 객체 프로퍼티 </h3>
+        <input type="text" onkeydown="whatKey(event)" placeholder="입력">
+        <div id="dic" style="background-color: skyblue;"></div>
+
+        <h3> 포커스 수행</h3>
+        <p>이름을 입력하지 않고 다른 곳으로 이동시 오류 경고 발생</p>
+        <form>
+            이름 : <input type="text" id="name" onblur="chkF(this)"> <br>
+            학번 : <input type="text" id="number">
+        </form>
+
+        <!--5번째 주제-->
+        <br><hr><hr>
+        <h3> 5. 윈도우 생성 및 종료</h3><br>
+        <form>
+            <input type="button" value="현재 창 변경" onclick="n_win()">
+            <hr>
+            <button onclick="window.open('http://www.daum.net', 'my_win', '')">다음</button>
+            <hr>
+            <button onclick="window.close('', 'my_win','')">윈도우 닫기</button>
+            <!-- 실제 윈도우는 닫히지 않지만 이런식으로 처리한다.-->
+        </form>
+        <hr>
+        <div id="div" style="color: green;"></div>
+        <a href="javascript:new_win('http://www.daum.net')">다음</a><br>
+        <a href="javascript:new_win('http://www.naver.net')">네이버</a><br>
+        <a href="javascript:new_win('http://www.gachon.ac.kr')">학교</a><br>
+        <a href="javascript:win_close()">윈도우 닫기</a>
+    </body>
+</html>

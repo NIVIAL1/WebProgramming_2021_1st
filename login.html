@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      scr="https://ajaxs.googleapis.com/ajax/libs/jquery/3.3.2/jquery.min.js"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인 화면</title>
+    <style>
+      table {
+        border-collapse: separate;
+        border-spacing: 10px 20px;
+      }
+    </style>
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
+    <div class="login">
+      <div class="top">
+        <div class="left">
+          <div class="row">
+            <label for="user_id_input"> ID </label>
+            <input type="text" id="user_id_input" placeholder="ID" />
+          </div>
+          <div class="row">
+            <label for="user_pw_input"> PASSWORD </label>
+            <input type="password" id="user_pw_input" placeholder="PASSWORD" />
+          </div>
+        </div>
+        <button class="right" onclick="login()">LOGIN</button>
+      </div>
+
+      <div class="bottom">
+        <button type="button" onclick="location.href='./lost_id.html'">
+          아이디 찾기
+        </button>
+        <button type="button" onclick="location.href='./lost_pw.html'">
+          비밀번호 찾기
+        </button>
+      </div>
+    </div>
+
+    <script>
+      var user_id = '';
+      var user_pw = '';
+      function login(){
+          user_id = document.getElementById("user_id_input").value;
+          user_pw = document.getElementById("user_pw_input").value;
+          readTextFile("/member.txt");
+      }
+  </script>
+
+<script>
+  function readTextFile(file)
+  {
+      var rawFile = new XMLHttpRequest();
+      rawFile.open("GET", file, false);
+      rawFile.onreadystatechange = function ()
+      {
+          var allText = rawFile.responseText;
+          var data = JSON.parse(allText);
+          var userList = data.userList;
+          for(var i = 0; i < userList.length; i++){
+              if(user_id == userList[i].id && user_pw == userList[i].pw){
+                  location.href='./main.html'
+                  var flag = true
+              }
+          }
+          if(!flag){
+              alert('로그인 실패');
+          }
+      }
+      rawFile.send(null);
+  }
+      // input.addEventListener('change', changeFile);
+      $("#user_pw_input").keyup(function (e) {
+        if (e.keyCode == 13)
+          // 13 = Enter Key
+          login();
+      });
+    </script>
+  </body>
+</html>

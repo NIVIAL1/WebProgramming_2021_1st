@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>12주차</title>
+        <style>
+            #logoDiv{
+                display:none;
+                position:absolute;
+                left:0;
+                top:0;
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+        <script>
+            function startTimer(time){
+            times = setTimeout("load('http://www.naver.com')", time);
+            }
+
+            function load(url){
+                window.open(url, "", "");
+            }
+            function cancelTimer(){
+                clearTimeout(times);
+            }
+            function alert(txt){
+                alert(txt)
+            }
+        </script>
+        <script>
+            function go_web(){
+                var site = document.getElementById("site");
+                window.location = site.options[site.selectedIndex].value;
+            }
+            function navi_info(){
+                var navi = document.getElementById("navi")
+                var text = "appCodeName : " +navigator.appCodeName + "<br>";
+                text += "appName : " + navigator.appName + "<br>";
+                text += "plugIns.length : " + navigator.plugins.length + "<br>";
+                
+                for(i=0; i<navigator.plugins.length;i++){
+                    text += "plugIns" + i + "<blockquote>";
+                    text += navigator.plugins[i].name + "<br>";
+                    text += navigator.plugins[i].description + "<br>";
+                    text += navigator.plugins[i].filename + "<blockquote>";
+                }
+                navi.innerHTML = text;
+            }
+            function p_scr(){
+                var ptr_scr = document.getElementById("ptr_scr");
+                var txt = "availHeight : "+ screen.availHeight+"<br>";
+                txt += "availWidth : "+ screen.availWidth+"<br>";
+                ptr_scr.innerHTML = txt;
+            }
+        </script>
+
+    </head>
+    <body onload="s_Scroll(1000)">
+        <h1>12주차</h1><br><hr>
+        <!--1번째 주제-->
+        <h3>1. 자동 스크롤 / 타이머 실행 </h3><br>
+        <h4>이미지에 마우스 올리고 3초간 잇으면 지정 사이트로 이동</h4>
+        <img src="./media/naver.gif" onmouseover="startTimer(3000)" onmouseout="cancelTimer()">
+        <hr><hr>
+
+        <!--2번째 주제-->
+        <h3>2. 텍스트 회전 / 프린트 실행</h3><br>
+        <div>
+            <span id="span" style="background-color: yellow;">자동회전하는 텍스트 </span>
+        </div>
+        <form>
+            <input type="button" onclick="stops(event)" value="멈춰">
+        </form><br><br>
+        <script>
+            span = document.getElementById("span");
+            timeID = setInterval("Rot()", 200);
+            
+            function Rot(){
+                var str = span.innerHTML;
+                
+                var firstChar = str.substr(0,1);
+                var remains = str.substr(1, str.length-1);
+                str = remains + firstChar;
+                span.innerHTML = str;
+            }
+    
+            function stops(e){
+                clearInterval(timeID);
+            }
+        </script>
+    
+        <script>
+            function s_Scroll(interval){
+                setInterval("autoScroll()", interval);
+            }
+            function autoScroll(){
+                window.scrollBy(0, 10);
+            }    
+            window.onbeforeprint = function(e){
+                logoDiv = document.getElementById("logoDiv");
+                logoDiv.style.display = "block";
+            }
+            window.onafterprint = function(e){
+                logoDiv = document.getElementById("logoDiv");
+                logoDiv.style.display = "none";
+                logoDiv.style.zIndex = -1;
+            }
+        </script>
+        <p> <a href="javascript:window.print()">내용 프린트</a></p> 
+        <input type="button" value="Printing" onclick="window.print()">
+        <div id="logoDiv">
+            <img src="./media/logo.png">
+        </div>
+        <!--3번째 주제-->
+        <hr><hr><h3>3. Location 처리</h3><br>
+        사이트 선택 : 
+        <select id="site">
+            <option value="http://www.naver.com">네이버</option>
+            <option value="http://www.gachon.ac.kr">가천대</option>
+            <option value="http://www.daum.net">다음</option>
+        </select>
+        <button onclick="go_web()">해당 사이트로 이동</button>
+        <br>
+        <h3>Navigator 정보 출력</h3>
+        <p id="navi">
+            <input type="button" onclick="navi_info()" value="네이게이션 정보">
+        </p>
+        <h3> 스크린 장치 정보 출력</h3>
+        <div id="ptr_scr">
+            <button onclick="p_scr()">스크린 정보</button>
+        </div>
+        <br>
+        <!--4번째 주제-->
+        <hr><hr><h3>4. Canvas 처리</h3><br>
+        <canvas id="c_v4" width="405" height="450" style="background-color: skyblue;"></canvas>
+        <br>
+        <button onclick="box()">빨간 박스</button>
+        <button onclick="g_box()">녹색 채워진 박스</button>
+        <button onclick="y_box()">노랑 채워진 박스</button>
+        <button onclick="clear_cnv()">캔버스 지우기</button>
+
+        <script>
+            var canvas = document.getElementById("c_v4");
+            var contxt = canvas.getContext("2d");
+            
+            
+            function box(){
+                contxt.beginPath();
+                contxt.strokeStyle = "red";
+                contxt.rect(50,50,100,100);
+                contxt.stroke();
+            }
+            function g_box(){
+                contxt.beginPath();
+                contxt.fillStyle = "green";
+                contxt.fillRect(100,100,100,100);
+                contxt.fill();
+            }
+            function y_box(){
+                contxt.fillStyle = "yellow";
+                contxt.fillText("노란 상자", 250,150);
+                contxt.fillRect(150,150,100,100);
+                contxt.fill();
+            }
+            function clear_cnv(){
+                contxt.clearRect(0,0,canvas.width, canvas.height);
+            }
+        </script>
+    </body>
+</html>

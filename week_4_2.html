@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4주차</title>
+    <style>
+        body {
+            background-color: black;
+            color : white;
+        }
+    </style>
+</head>
+<body>
+    <pre>
+&lt;!DOCTYPE&nbsp;html&gt;
+&lt;html&nbsp;lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;charset=&quot;UTF-8&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;http-equiv=&quot;X-UA-Compatible&quot;&nbsp;content=&quot;IE=edge&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;name=&quot;viewport&quot;&nbsp;content=&quot;width=device-width,&nbsp;initial-scale=1.0&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;4주차&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;4주차&lt;/h1&gt;&lt;br&gt;&lt;hr&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--1번째&nbsp;주제&nbsp;style--&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;1.&nbsp;스타일&nbsp;있는&nbsp;페이지를&nbsp;태그로&nbsp;작성&lt;/h3&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;style&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@import&nbsp;url(m_style.css);
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/style&gt;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;자식&nbsp;및&nbsp;본인의&nbsp;객체&nbsp;style&nbsp;--&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;style&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p&nbsp;{color:&nbsp;blue;&nbsp;font-size:&nbsp;15px;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h3,&nbsp;li&nbsp;{color:&nbsp;blue;&nbsp;font-style:&nbsp;italic;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body.mains&nbsp;{background-color:&nbsp;aliceblue;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;div.mains&nbsp;{font-style:&nbsp;italic;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;div.oks&nbsp;{color:&nbsp;yellow;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.warning&nbsp;{color:&nbsp;springgreen;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#list&nbsp;{background-color:&nbsp;rgb(179,&nbsp;245,&nbsp;217);&nbsp;font-size:&nbsp;20px;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;div&nbsp;&gt;&nbsp;strong&nbsp;{background:&nbsp;dodgerblue;}&nbsp;&nbsp;/*자식&nbsp;셀렉터*/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ul&nbsp;strong&nbsp;{color:&nbsp;dodgerblue;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*자손&nbsp;셀렉터*/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input[type=text]&nbsp;{color:&nbsp;red;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;li:hover&nbsp;{background:&nbsp;yellowgreen;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h3::first-letter{color:tomato;}
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/style&gt;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;3번째&nbsp;주제&nbsp;style--&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;style&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body{background-color:&nbsp;gold;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;span{background-color:&nbsp;greenyellow;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;div.box{&nbsp;width:&nbsp;200px;&nbsp;height:&nbsp;180px;&nbsp;margin:&nbsp;50px;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-width:&nbsp;30px;&nbsp;padding:&nbsp;20px;&nbsp;border-style:&nbsp;dotted;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text-align:&nbsp;center;&nbsp;border-color:&nbsp;hotpink;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#round&nbsp;{border-radius:&nbsp;50px;&nbsp;background-color:&nbsp;hotpink;}
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/style&gt;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;CSS3&nbsp;만들기&lt;/h3&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;웹&nbsp;&lt;span&gt;프로그래밍&lt;/span&gt;&nbsp;작업&lt;/p&gt;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--2번째&nbsp;주제--&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;br&gt;&lt;hr&gt;&lt;hr&gt;&lt;h3&gt;2.&nbsp;Web&nbsp;Programming&lt;/h3&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&nbsp;style=&quot;font-size:&nbsp;20px;&quot;&gt;&nbsp;2학기&lt;strong&gt;학습내용&lt;/strong&gt;&lt;/p&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&nbsp;id=&quot;list&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;HTML5&lt;/li&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;strong&gt;CSS&lt;/strong&gt;&lt;/li&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;JAVASCRIPT&lt;/li&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60점&nbsp;이하는&nbsp;F!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;hr&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;아&nbsp;이&nbsp;디&nbsp;:&nbsp;&lt;input&nbsp;type=&quot;text&quot;&nbsp;id=&quot;id&quot;&gt;&lt;br&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;비밀번호&nbsp;:&nbsp;&lt;input&nbsp;type=&quot;password&quot;&nbsp;id=&quot;pass&quot;&gt;&lt;br&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type=&quot;submit&quot;&gt;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--3번째&nbsp;주제--&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;br&gt;&lt;hr&gt;&lt;hr&gt;&lt;h3&gt;3.&nbsp;Div&nbsp;Box&nbsp;Create&lt;/h3&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;hr&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;box&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&nbsp;style=&quot;border:15px&nbsp;groove&nbsp;yellow;&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img&nbsp;src=&quot;media/mio.png&quot;&nbsp;alt=&quot;고양이눈&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;hr&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;box&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&nbsp;id=&quot;round&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img&nbsp;src=&quot;media/mio.png&quot;&nbsp;alt=&quot;고양이눈&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body>
+</html>

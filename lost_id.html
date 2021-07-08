@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      scr="https://ajaxs.googleapis.com/ajax/libs/jquery/3.3.2/jquery.min.js"
+    ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아이디 찾기</title>
+    <style>
+      table {
+        border-collapse: separate;
+        border-spacing: 10px 20px;
+      }
+    </style>
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
+    <table
+      class="login"
+      style="
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 200px;
+        margin-bottom: auto;
+      "
+    >
+      <tr>
+        <td class="invisible" style="text-align: center">이름</td>
+        <td colspan="3">
+          <input type="text" id="user_name_input" placeholder="이름" />
+        </td>
+      </tr>
+      <tr>
+        <td class="invisible" style="text-align: center">학번</td>
+        <td colspan="3">
+          <input type="text" id="user_number_input" placeholder="학번" /><br />
+        </td>
+      </tr>
+      <tr>
+        <td><button class="btn btn-info" onclick="cancel()">취소</button></td>
+        <td colspan="2" align="center">
+          <button class="btn btn-info p" onclick="find()">ID 찾기</button>
+        </td>
+      </tr>
+    </table>
+    <script>
+      function cancel(){
+          location.href='./login.html';
+      }
+      
+      function find(){
+          user_name = document.getElementById("user_name_input").value;
+          user_number = document.getElementById("user_number_input").value;
+          readTextFile("/member.txt");
+
+      }
+
+      function readTextFile(file)
+  {
+      var rawFile = new XMLHttpRequest();
+      rawFile.open("GET", file, false);
+      rawFile.onreadystatechange = function ()
+      {
+          var allText = rawFile.responseText;
+          var data = JSON.parse(allText);
+          var userList = data.userList;
+          for(var i = 0; i < userList.length; i++){
+              if(user_name == userList[i].name && user_number == userList[i].number){
+                  alert(userList[i].id)
+                  var flag = true
+              }
+          }
+          if(!flag){
+              alert('계정이 없습니다.');
+          }
+      }
+      rawFile.send(null);
+  }
+  </script>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5주차</title>
+    <!-- 1번째 주제 style-->
+    <style>
+        p {background:yellowgreen;
+        
+        width: 300px; padding: 20px;}
+        #round1 {border-radius:50px;}
+        #round2{border-radius: 0px 20px 40px 60px;}
+        #round3{border-radius: 0px 20px 40px;}
+        #round4{border-radius: 0px 20px;}
+        #round5{border-radius: 50px; border-style: dotted;}
+    </style>
+    <!-- 2번재 주제 style-->
+    <style>
+        #round {border-image: url("./media/border.png") 30 round;}
+        #repeat {border-image: url("./media/border.png") 30 repeat;}
+        #stretch {border-image: url("./media/border.png") 30 stretch;}
+        div {
+            background-color: skyblue;
+            background-size: 100px 100px;
+            background-image: url("media/spongebob.png");
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    </style>
+    <!-- 3번재 주제 style-->
+    <style>
+        .dropText{ text-shadow: 3px 3px;}
+        .redText {text-shadow: 3px 3px red;}
+        .multiEffect {color:yellow;
+        text-shadow: 2px 2px 2px black, 0 0 25px blue, 0 0 5px darkblue;}
+        div {
+            width: 150px; height: 100px; padding: 10px;
+            border: 10px solid lightgray; 
+            background-image: url("media/spongebob.png");
+            background-size: 150px 100px;
+            background-repeat: no-repeat;
+        }
+        .redBox{
+            box-shadow: 10px 10px red;
+        }
+        .blueBox{
+            box-shadow: 10px 10px skyblue;
+        }
+        .multiEffect{
+            box-shadow: 2px 2px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+        }
+    </style>
+    <style>
+        <!--6번째 주제-->
+    
+        div{
+            display: inline; position: absolute; border: 1px solid lightgray;
+        }
+        div > p{
+            display: inline-block; position: absolute;height: 20px; width: 15px;
+            background-color: lightgreen;
+        }
+        #down:hover{
+            position: relative; left: 20px; top:20px;
+            background-color: blue;
+        }
+        #up:hover{
+            position: relative; right: 20px; bottom:20px;
+            background-color: blue;
+        }
+        #fixed{
+            position: fixed;
+            background-color: red;
+            bottom:60px; right: 300px; 
+            width: 100px;
+            padding: 5px; color: white;
+        }
+        #float{
+            float: right;
+            border:1px black;
+            width: 200px; padding: 15px;
+            margin: 1em;
+        }
+        span {
+            visibility: hidden; /* hidden / visible */
+        }
+        p{
+            width: 15em; height: 3em;
+            border: 1px solid lightgray;
+        }
+        #hidden{
+            overflow: hidden;
+        }
+        .visible{
+            overflow: visible;
+        }
+    </style>
+</head>
+<body>
+    <h1>5주차</h1><br><hr>
+    <!--1번째 주제-->
+    <h3>1. 다양한 테두리 작성</h3>
+    <p id="round1"> 반지름 50px </p>
+    <p id="round2"> 반지름 0 20 40 60 px </p>
+    <p id="round3"> 반지름 0 20 40 px </p>
+    <p id="round4"> 반지름 0 20 px </p>
+    <p id="round5"> 반지름 50 px </p>
+
+    <hr>
+    <!-- 2번째 주제-->
+    <h3> 2. 이미지 테두리 만들기 </h3>
+    <div> </div>
+    <hr>
+    <br><br><br><br><br><br><br>
+    <!-- 3번째 주제-->
+    <h3>3. 박스 그림자 만들기</h3>
+    <hr>
+    <div class="redBox">redBox</div>
+    <div class="blueBox">blueBox</div>
+    <div class="multiEffect">multiEffect</div>
+
+    <!-- 4번째 주제-->
+    
+    <h3>4. 마우스 커서 활용</h3>
+    <hr><br><br>
+    <p style="cursor: crosshair">십자모양 마우스</p>
+    <p style="cursor: progress">progress 마우스</p>
+    <p style="cursor: pointer">포인터 마우스</p>
+    <p style="cursor: help">도움말 마우스</p>
+
+
+    <!-- 5번째 주제-->
+    
+    <h3>5. DIV 커서 활용</h3>
+    <hr>
+    <div style="background-color: orange;">
+        <div>DIVDIV</div>
+        <div>DIVDIV</div>
+        <div>DIVDIV</div>
+        박스
+        
+    </div>
+    
+</body>
+</html>

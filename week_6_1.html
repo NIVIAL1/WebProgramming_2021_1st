@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6주차</title>
+    <!--1번째 주제 style-->
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            border: 1px dotted blue;
+            width:100px; height: 50px;
+            text-align: center;
+        }
+        thead, tfoot {
+            background-color: darksalmon;
+            color:greenyellow;
+            font-size: 20px;
+        }
+        td, tfoot td {
+            border-bottom: 1px solid gray;
+        }
+        tbody tr:nth-child(even) {
+            background: aliceblue;
+        }
+        tbody tr:hover {
+            background: skyblue;
+        }
+        
+    </style>
+    <style>
+        input[type=text]{
+            color:red;
+            border: 3px solid skyblue;
+            border-radius: 5px;
+        }
+        input[type=text]:hover{
+            background: yellow;
+        }
+        input[type=text]:focus {
+            font-size: 120%;
+        }
+    </style>
+
+    <!--2번째 주제 style-->
+    <style>
+        @keyframes abc {
+            0% {color: blue;}
+            40% {color: green;}
+            100% {color: red;}
+        } 
+        span{
+            animation-name: abc;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            font-weight: bold;
+            font-size: 20px;
+        }
+     </style>
+     <style>
+         @keyframes upsize {
+             0% {font-size: 100%;}
+             25% {font-size: 200%;}
+             50% {font-size: 400%;}
+             75% {font-size: 200%;}
+             100% {font-size: 100%;}
+         }
+         h2{
+             animation-name: upsize;
+             animation-duration: 10s;
+             animation-iteration-count: infinite;
+         }
+ 
+     </style>
+     <style> /* 전환 */
+         h4{
+             transition: font-size 5s;
+         }
+         h4:hover {
+             font-size: 500%
+         }
+     </style>
+     <style> /* 변환 */
+         div {
+             display: inline-block;
+             color: white;
+             background-color: olivedrab;
+         }
+         div#rotate{
+             transform: rotate(20deg);
+         }
+         div#skew{
+             transform: skew(0deg, -20deg);
+         }
+         div#translateY{
+             transform: translateY(100px);
+         }
+         div#scale{
+             transform: scale(2,0.5);
+         }
+         div#rot:hover{
+             transform: rotate(10deg);
+         }
+         div#sw:hover{
+             transform: skew(10deg, -30deg);
+         }
+         div#trY:hover{
+             transform: translateY(50px);
+         }
+         div#sc:hover{
+             transform: scale(0.5, 2);
+         }
+     </style>
+</head>
+<body>
+    <h1>6주차</h1><br><hr>
+    <!--1번째 주제-->
+    <h3>1. 테이블 작성</h3>
+
+</head>
+<body>
+    <table>
+        <thead>     <!--테이블의 제목줄-->
+            <tr>
+                <td>이름</td>
+                <td>HTML</td>
+                <td>CSS</td>
+            </tr>
+        </thead>
+
+        <tbody>     <!--테이블의 내용-->
+            <tr>
+                <td>홍길동</td>
+                <td>95</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>강감찬</td>
+                <td>95</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>사임당</td>
+                <td>90</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>이율곡</td>
+                <td>90</td>
+                <td>90</td>
+            </tr>
+            
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>총합</th>
+                <td>370</td>
+                <td>360</td>
+            </tr>
+        </tfoot>
+    </table>
+    <hr>
+    <!-- 2번째 주제-->
+    <h3> 2. 폼 입력 </h3>
+    <label>
+        이    름 : <input type="text" placeholder="name"> <br>
+        비밀번호 : <input type="password"> <br>
+        내    용 : <textarea placeholder="내용 작성"></textarea>
+    </label>
+    <hr>
+    <!-- 3번째 주제-->
+    <h3>3. 동적변화 만들기</h3>
+    <h3>애니메이션</h3>
+    <span>span</span>
+    텍스트를 10초에 blue, green, red로 변경됨을 볼 수 있다. 
+    <hr>
+    <h2>4. 글자 변경</h2>
+    <hr>
+    <h3>5. 글자 변환</h3>
+    <div id="rotate">회전       </div>
+    <div id="skew">기울기     </div>
+    <div id="translateY">이동       </div>
+    <div id="scale">확대, 축소 </div>
+    <br>
+    <p></p><br>
+    <div id="rot">회전       </div>
+    <div id="sw">기울기     </div>
+    <div id="trY">이동       </div>
+    <div id="sc">확대, 축소 </div>
+</body>
+</html>

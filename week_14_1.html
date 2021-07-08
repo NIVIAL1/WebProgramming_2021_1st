@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>14주차</title>
+        <script>
+            function GetCookie (name) {
+                var str = name+"=";
+                var pairs = document.cookie.split(";"); // 쿠키문자열을 ;을 경계로 분할
+                for(var i=0; i<pairs.length; i++) {
+                    var pair = pairs[i].trim(); // 쿠키 앞뒤의 빈칸 제거
+                    var unit = pair.split("=");
+                    if(unit[0] == name)
+                        return unescape(unit[1]);
+                }
+                return null;
+            }
+            function SetCookie (name, value, expireDate) {
+                var cookieStr = name + "=" + escape(value) + ((expireDate == null)?"":("; expires=" + expireDate.toGMTString()));
+                document.cookie = cookieStr;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>14주차</h1>
+        <br><hr><br>
+        <!--1. 쿠키 활용 부분-->
+        <h3> 1. 쿠키 사례 작성</h3>
+        <br>
+        <var id="cookie_ex">cookie_확인</var>
+        <script>
+            var username = GetCookie("username");
+            var count = GetCookie("count");
+            txtset = document.getElementById("cookie_ex");
+            var expire = new Date (); // 현재 시간
+            
+            if(username == null){
+                username = prompt("이름을 입력해 주십시오.","");
+                if(username == ""){
+                    username = "yms";
+                }
+                expire.setTime(expire.getTime() + (365 * 24 * 3600 * 1000)); // 1년후 
+                SetCookie("username",username,expire);
+                
+            }
+            count++;
+            expire.setTime(expire.getTime() + (365 * 24 * 3600 * 1000)); // 1년후 
+            SetCookie("count",count,expire);
+            txtset.innerHTML = '어서오십시오. '+username+'님의 '+count+'번째 방문을 환영합니다!<br>';
+        </script>
+
+        <button onClick="window.location.reload()">페이지 새로고침</button>
+        
+        <!--2. Session Storage 활용 부분-->
+        <hr><hr>
+        <h3>2. Session Storage</h3>
+        <br><br>
+        품목명 : <input id="item_session" type="text" size="10">
+        개수 : <input id="count_session" type="text" size="10">
+        <button id="save_session" onclick="store_session()">저장</button>
+        <button id="retrieve_session" onclick="retrieve_session()">검색</button><p>    
+
+        <script>
+            var item_session = document.getElementById("item_session");
+            var count_session = document.getElementById("count_session");
+            function store_session(){
+                if(!window.sessionStorage){
+                    alert("지원 안되네요!");
+                }
+                sessionStorage.setItem(item_session.value, count_session.value);
+            }
+            function retrieve_session(){
+                if(!window.sessionStorage){
+                    alert("지원 안되네요!");
+                }
+                var val = sessionStorage.getItem(item_session.value);
+                if(val == null){
+                    alert(item_session.value + "는 리스트에 없네요");
+                }
+                count_session.value = val;
+            }
+        </script>
+
+
+        <!--3. local Storage 활용 부분-->
+        <hr><hr>
+        <h3>3. localStorage StorageEvent</h3>
+        품목명 : <input id="item_local" type="text" size="10">
+        개수 : <input id="count_local" type="text" size="10">
+        <button id="save_local" onclick="store_local()">저장</button>
+        <button id="retrieve_local" onclick="retrieve_local()">검색</button><p>
+        <b>로컬 스토리지의 변경 내용(storage 이벤트):</b><br>
+        <textarea id="textarea" cols="100" rows="10"></textarea>
+
+        <script>
+            window.addEventListener("storage", storageEventListener, false);
+
+            function storageEventListener(e) { // e는 StorageEvent 객체
+                var eventDetail =   "key:\t\t\t" + e.key + "\n" +
+                                    "oldValue:\t\t" + e.oldValue + "\n" +   
+                                    "newValue:\t\t" + e.newValue + "\n" + 
+                                    "storageArea:\t\t" + e.storageArea + "\n" +
+                                    "url:\t\t\t" + e.url;
+                document.getElementById("textarea").innerHTML = eventDetail; //<textarea>에 출력
+            }
+        </script>
+
+        <script>
+            var item = document.getElementById("item_local");
+            var count = document.getElementById("count_local");
+            function store_local() {
+                if (!window.localStorage) {
+                    alert("로컬스토리지를 지원하지 않습니다.");
+                    return;
+                }
+                localStorage.setItem(item.value, count.value);
+            }
+            function retrieve_local() {
+                if (!window.localStorage) {
+                    alert("로컬스토리지를 지원하지 않습니다.");
+                    return;
+                }
+                var val = localStorage.getItem(item.value);
+                if(val == null)
+                    alert(item.value + "는 구입 리스트에  없습니다.");
+                else
+                    count.value = val;
+            }
+        </script>
+    </body>
+</html>

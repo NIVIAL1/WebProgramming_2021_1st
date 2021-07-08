@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3주차</title>
+    <!-- 1번째 주제 style -->
+    <style>
+        html, body {margin: 0; padding:0; height: 100%;}
+        .header{width: 100%; height: 15%; background: yellow;}
+        .nav{width: 15%;height: 70%; float:left; background: orange;}
+        .section{width: 70%; height: 70%;float: left; background: olive;}
+        .aside{width: 15%; height: 70%; float: left; background: orange;}
+        .footer{width: 100%; height: 15%;clear: both; background: green;}
+</style>
+</head>
+<body>
+    <h1>3주차</h1><br><hr>
+    <!--1번째 주제-->
+    <h3>1. 시멘틱 태그의 구조화 표현</h3>
+    <header class="header">Header </header>
+    <nav class="nav">Nav</nav>
+    <section class="section">Section</section>
+    <aside class="aside">Aside</aside>
+    <footer class="footer">Footer</footer>
+
+    <!-- 2번째 주제 -->
+    <br><hr><hr><h3>2. 시멘틱 태그 사용 / figure 활용</h3>
+    <section>
+        <header>details & summary</header>
+        <details>
+          <summary>Question 1</summary>
+          <p> 개발자가 알아야 하는 언어들 </p>
+        </details>
+        <details>
+          <summary>Answer</summary>
+          <p>ASP, JSP, Web Code ....</p>
+        </details>
+      </section>
+      <section>
+        지금은 <time>10:33</time>분입니다<br>
+        <meter value="0.5"></meter> <br>
+        <progress value="4" max="50"></progress>
+      </section>
+
+      <!-- 3번째 주제 -->
+    <br><hr><hr><h3>3. 웹폼 구성</h3>
+      <form method="GET" action="rst.html">
+        <fieldset>
+          <legend>아이디, 비밀번호, 이메일 , 자소서</legend>
+          <label>
+            사용자 아이디 : <input type="text" name="id" size="10" placeholder="user id"><br>
+            </label>
+        
+            <label for="pass"> 비밀번호 :  </label>
+            <input type="password" name="pass" placeholder="비밀번호 입력"><br>
+            이메일 : <input type="email" placeholder="id@host"><br>
+            자소서 : <textarea cols="30" rows="5"></textarea><br>
+    
+        </fieldset>
+        
+        좋아하는 음식 : <input type="text" list="foods">
+        <datalist id="foods">
+          <option value="한식"></option>
+          <option value="중식"></option>
+          <option value="일식"></option>
+        </datalist><br>
+        가보고싶은 산 : 
+        <input type="text" list="mnts">
+          <datalist id="mnts">
+            <option value="북한산"></option>
+            <option value="설악산"></option>
+            <option value="관악산"></option>
+          </datalist><br>
+        대표적인 중국 음식 : <br>
+        <label>
+          <input type="radio" name="china" value="1"> 짜장면 <img src="media/jajang.png"> <br>
+        </label>
+        <label>
+          <input type="radio" name="china" value="2"> 짬뽕 <img src="media/jjambbong.png"> <br>
+        </label>
+        <label>
+          <input type="radio" name="china" value="3"> 탕수육 <img src="media/tangsuyuk.png"> <br>
+        </label>
+        
+    
+        대표적인 한국 음식 : <br>
+        <input type="checkbox" name="korea" value="1"> 설렁탕<br>
+        <input type="checkbox" name="korea" value="2" checked> 갈비<br>
+        <input type="checkbox" name="korea" value="3"> 신선로<br>
+        
+        대표적인 일본 음식 : 
+        <select name="jap">
+          <option value="1">날회</option>
+          <option value="2">우동</option>
+          <option value="3">샤부</option>
+        </select><hr>
+    
+        <input type="color" value="#008FFF" onchange="document.body.style.color = this.value">
+        <hr>
+        <input type="date" value="2021-01-01">
+        <hr>
+        <!-- 4번째 주제 -->
+        <h3>4. 스핀과 슬라이드</h3>
+        스핀<input type="number" min="0" max="10" step="1"><br>
+        슬라이드<input type="range" min="0" max="10" list="abc"><br>
+        <datalist id="abc">
+          <option value="0" label="Low"></option>
+          <option value="5" label="Middle"></option>
+          <option value="10" label="High"></option>
+        </datalist>
+        <hr>
+        <input type="submit" value="완료">
+        <input type="button" value="취소">
+        <input type="button" value="미선택">
+        <input type="image" src="media/button.png">
+      </form>
+</body>
+</html>

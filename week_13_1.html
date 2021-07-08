@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>13주차</title>
+        <script>
+            window.onload = function(){
+                canvas_1 = getElementById("c_v_1");
+                contxt_1 = canvas_1.getContext("2d");
+            }
+            function clear_cnv_1(){
+                contxt_1.clearRect(0,0,canvas_1.width, canvas_1.height);
+            }
+
+            function make_cnv_1(){
+                for(i=0;i<7;i++){
+                    contxt_1.beginPath();
+                    contxt_1.rect(10 + i * 30, 10 + i * 10, 50, 50);
+                    contxt_1.strokeStyle = "red";
+                    contxt_1.fillStyle = "blue";
+                    contxt_1.fill();
+                    contxt_1.lineWidth = 5;
+                    contxt_1.closePath();
+                    contxt_1.stroke();
+                }
+            }
+
+            function make_draw_1(){
+                contxt_1.beginPath();
+                contxt_1.moveTo(20,20);
+                contxt_1.lineTo(150,150);
+                contxt_1.strokeStyle = "skyblue";
+                contxt_1.lineWidth = 3;
+                contxt_1.closePath();
+                contxt_1.stroke();
+
+                contxt_1.beginPath();
+                contxt_1.rect(150,150,100,100);
+                contxt_1.strokeStyle = "violet";
+                contxt_1.fillStyle = "blue";
+                contxt_1.fill();
+                contxt_1.lineWidth = 2;
+                contxt_1.closePath();
+                contxt_1.stroke();
+            }
+            /* 그림판 만들기 코드 script */
+            var canvas_4, contxt_4;
+            var startX = 0;
+            var startY = 0;
+            var dragging = false;
+            
+            function init_4(){
+                canvas_4 = document.getElementById("c_v_4");
+                contxt_4 = canvas_4.getContext("2d");
+
+                contxtlineWidth = 2;
+                contxt_4.strokeStyle = "blue";
+                
+                canvas_4.addEventListener("mousedown", function(e){down(e)}, false);
+                canvas_4.addEventListener("mousemove", function(e){move(e)}, false);
+                canvas_4.addEventListener("mouseup", function(e){up(e)}, false);
+                canvas_4.addEventListener("mouseout", function(e){out(e)}, false);
+            }
+            function down(e){
+                startX = e.offsetX;
+                startY = e.offsetY;
+                dragging = true;
+            }
+            function up(e){
+                dragging = false;
+            }
+            function move(e){
+                if(!dragging) return;
+                var curX = e.offsetX, curY = e.offsetY;
+                draw(curX,curY);
+                startX = curX;
+                startY = curY;
+            }
+            function out(e){
+                dragging = false;
+            }
+
+            function draw(curX, curY){
+                contxt_4.beginPath();
+                contxt_4.moveTo(startX, startY);
+                contxt_4.lineTo(curX, curY);
+                contxt_4.stroke();
+
+            }
+            function clear_cv_4(){
+                contxt_4.clearRect(0,0,canvas_4.width, canvas_4.height);
+            }
+        </script>
+    </head>
+    <body>
+        <h1>13주차</h1><br><hr>
+        <!--1번째 주제-->
+        <h3>1. 사각형 그리기</h3>
+        <br>
+        <canvas id="c_v_1" width="500" height="400" style="background-color: antiquewhite;">
+        </canvas>
+        <br>
+        <input type="button" value="선 그리기" onclick="make_draw_1()">
+        <input type="button" value="캔버스 만들기" onclick="make_cnv_1()">
+        <input type="button" value="캔버스 지우기" onclick="clear_cnv_1()">
+
+        <script>
+            canvas_1 = document.getElementById("c_v_1");
+            contxt_1 = canvas_1.getContext("2d");
+        </script>
+        <hr><hr>
+        <!--2번째 주제-->
+        <h3>2. 텍스트 그리기</h3>
+        <br>
+        <canvas id="c_v_2" style="background-color: antiquewhite;" width="500" height="450"></canvas>
+
+        <script>
+            canvas_2 = document.getElementById("c_v_2");
+            contxt_2 = canvas_2.getContext("2d");
+
+            contxt_2.font = "50px arial";
+            contxt_2.strokeStyle = "blue";
+            contxt_2.strokeText("Javascript", 30, 40);
+
+            contxt_2.font = "50px arial";
+            contxt_2.fillStyle = "green";
+            contxt_2.fillText("Javascript", 130, 70);
+            contxt_2.strokeText("Javascript", 130, 70);
+        </script>
+        <script>
+            canvas_2 = document.getElementById("c_v_2");
+            contxt_2 = canvas_2.getContext("2d");
+            contxt_2.strokeStyle = "red";
+
+            for(i=0 ; i<4; i++){
+                contxt_2.font = (10*i +10)+"px arial";
+                contxt_2.strokeText("JavaScript", 50, 70 + i * 50);
+            }
+            contxt_2.font = "50px arial";
+            contxt_2.strokeStyle = "blue";
+            contxt_2.textAlign = "left";
+            contxt_2.strokeText("JavaScript", 100, 100);
+        </script>
+        <!--3번째 주제-->
+        <hr><hr><h3>3. 이미지 구성하기</h3><br>
+        <canvas id="c_v_3" style="background-color: antiquewhite;" width="500" height="400">
+        </canvas>
+
+        <script>
+            canvas_3 = document.getElementById("c_v_3");
+            contxt_3 = canvas_3.getContext("2d");
+
+            img = new Image();
+            
+            img.onload = function(){
+                contxt_3.drawImage(img, 10, 10);
+            }
+            img.src = "./media/myPet.jpg";
+        </script>
+        <!--4번째 주제-->
+        <hr><hr><br><h3>4. 마우스를 누른채 드래깅하여 그림을 그리는 그림판</h3><br>
+        <canvas id="c_v_4" style="background-color: antiquewhite;" width="500" height="400"></canvas>
+        <br>
+        <input type="button" onclick="init_4()" value="그리기">
+        <input type="button" onclick="clear_cv_4()" value="지우기">
+    </body>
+</html>
